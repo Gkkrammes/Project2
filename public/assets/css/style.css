@@ -1,0 +1,239 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: whitesmoke;
+}
+
+.head {
+    height: 95vh;
+    background-image: linear-gradient(
+        to right bottom, 
+    rgba(209, 207, 85, 0.845), 
+    rgba(201, 173, 52, 0.797)), 
+    url(/img/Balloons.jpeg);
+    background-size: cover;
+    background-position: top;
+}
+
+.main-box {
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+.prime-head {
+    color: #ffffff;
+	text-transform: uppercase;
+	margin-bottom: 60px;
+}
+
+.prime-head-main {
+    overflow: hidden;
+    white-space: nowrap;
+	display: block;
+	font-size: 70px;
+	font-weight: 400;
+	letter-spacing: 33px;
+	animation-name: moveInLeft;
+	animation-duration: 7s;
+	animation-timing-function: ease-out;
+}
+
+.prime-head-second {
+    font-family: 'Dancing Script', cursive;
+    text-transform: capitalize;
+	display: block;
+	font-size: 20px;
+	font-weight: 400;
+	letter-spacing: 11px;
+	animation-name: moveInRight;
+	animation-duration: 7s;
+	animation-timing-function: ease-out;
+
+}
+
+@keyframes moveInLeft {
+	0% {
+		opacity: 0;
+		transform: translateX(-100px);
+	}
+	 80% {
+		transform: translateX(20px);
+	 }
+
+	100% {
+		opacity: 1;
+		transform: translate(0);
+	}
+}
+
+@keyframes moveInRight {
+	0% {
+		opacity: 0;
+		transform: translateX(100px);
+	}
+	 80% {
+		transform: translateX(-20px);
+	 }
+
+	100% {
+		opacity: 1;
+		transform: translate(0);
+	}
+}
+
+@keyframes moveInBottom {
+	0% {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	 80% {
+		transform: translateX(-20px);
+	 }
+
+	100% {
+		opacity: 1;
+		transform: translate(0);
+	}
+}
+
+
+.button:link,
+.button:visited {
+	text-transform: uppercase;
+	text-decoration: none;
+	padding: 15px 40px;
+	display: inline-block;
+	background-color: #ffffff;
+	color: grey;
+	border-radius: 100px;
+	transition: all .2s;
+	position: relative;
+
+}
+
+.button:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 15px 30px rgba(0,0,0,.2);
+}
+
+.button:active {
+	transform: translateY(-1px)
+	box-shadow: 0 7px 15px rgba(0,0,0,.2);
+
+}
+
+.white-button {
+	background-color: #ffffff;
+	color: grey;
+}
+
+.button::after {
+	content: "";
+	display: inline-block;
+	height: 100%;
+	width: 100%;
+	border-radius: 100px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1; 
+	transition: all .4s;
+}
+
+.white-button::after {
+	background-color: #ffffff;
+}
+
+.button:hover::after {
+	transform: scaleX(1.8) scaleY(1.7);
+	opacity: 0;
+}
+
+.button-animated {
+	animation: moveInBottom .7s ease-out 1s;
+	animation-fill-mode: backwards;
+}
+
+.popup {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.popup .poptext {
+	visibility: hidden;
+	width: 160px;
+	background-color: #ffffff;
+	text-align: center;
+	border-radius: 6px solid red;
+	padding: 8px 0;
+	position: absolute;
+	z-index: 1;
+	bottom: 125%;
+	left: 50%;
+	margin-left: -80px;
+}
+
+.popup .poptext::after {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: #ffffff;
+
+}
+
+.popup .show {
+	visibility: visible;
+	-webkit-animation: fadeIn 1s;
+	animation: fadeIn 1s;
+}
+
+@-webkit-keyframes fadeIn {
+	from {opacity: 0;}
+	to { opacity: 1;}
+}
+
+@keyframes fadeIn {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+
+.readFill {
+	max-width: 50rem;
+	background-color: black;
+	margin: 0 auto;
+
+}
+
+.container {
+	width: 100px;
+	border-radius: .5em;
+	padding: 10px;
+	display: flex;
+	justify-content: space-between;
+	margin: 1em;
+	
+}
+
+form {
+	display: none;
+}
+
+
+
+
