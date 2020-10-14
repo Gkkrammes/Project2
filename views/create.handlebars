@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <title>Party Planner</title>
+    <a href="./index.handlebars"></a>
+</head>
+
+<body>
+   <div class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+    <form>
+        <div class="form-group">
+            <label for="CreatorEmail">Enter creator's email address:</label>
+            <input type="email" class="form-control" id="CreatorEmail" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+            <label for="CreatorPassword">Enter a creator password:</label>
+            <input type="password" class="form-control" id="CreatorPassword">
+        </div>
+        <div class="form-group">
+            <label for="PartyName">Name your party:</label>
+            <textarea class="form-control" id="PartyName" rows="1"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="PartyDescription">Name your party:</label>
+            <textarea class="form-control" id="PartyDescription" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="UserPassword">Enter password to be used by atendees:</label>
+            <input type="password" class="form-control" id="UserPassword">
+        </div>
+         
+    </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="button white-button button-animated" data-dismiss="modal">Close</button>
+        <button type="button" class="button white-button button-animated">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>
