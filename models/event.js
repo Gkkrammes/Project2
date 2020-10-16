@@ -7,7 +7,35 @@ module.exports = function(sequelize, DataTypes) {
                 len: [1]
             }
         },
-        type: DataTypes.STRING,
+        description: {
+            type: DataTypes.TEXT,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+        creatorEmail: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+        creatorPassword: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+        userPassword: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+
     });
 
     Event.associate = function(models) {
