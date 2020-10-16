@@ -10,6 +10,8 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Requiring our routes
+const eventsController = require("./controllers/events_controller");
+
 // require("./routes/html-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
