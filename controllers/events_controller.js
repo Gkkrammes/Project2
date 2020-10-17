@@ -4,7 +4,7 @@ const router = express.Router();
 const db = require("../models");
 
 router.get("/", function(req,res) {
-    db.Event.findAll(function(data) {
+    db.Event.findAll({}).then(function(data) {
         const eventObject = {
             Event: data
         }
@@ -13,10 +13,10 @@ router.get("/", function(req,res) {
     });
 });
 
-router.get("/:event", function(req,res) {
+router.get("/:name", function(req,res) {
     db.Event.findOne({
         where: {
-            Event: req.params.event
+            name: req.params.name
         }
     }, function(data) {
         console.log(data);
@@ -50,3 +50,5 @@ router.put("/api/events/:id", function(req, res) {
         }
     });
 });
+
+module.exports = router;
