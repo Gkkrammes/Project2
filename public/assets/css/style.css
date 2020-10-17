@@ -128,7 +128,7 @@ body {
 }
 
 .button:active {
-	transform: translateY(-1px)
+	transform: translateY(-1px);
 	box-shadow: 0 7px 15px rgba(0,0,0,.2);
 
 }

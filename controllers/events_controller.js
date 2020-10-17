@@ -35,14 +35,12 @@ router.post("/api/events", function(req,res) {
 });
 
 router.put("/api/events/:id", function(req, res) {
-    db.Event.update({
-        where: {
-            id: req.params.id
-        }
-    },{
-        name: req.body.name,
-        description: req.body.description,
-    }, function(result) {
+    db.Event.update(req.body, 
+        {
+            where: {
+                id: req.params.id
+            }
+        }, function(result) {
         if (result.changedRows == 0) {
             return res.status(404).end();
         } else {
@@ -50,3 +48,19 @@ router.put("/api/events/:id", function(req, res) {
         }
     });
 });
+
+router.delete("/api/events/:id", function(req,res) {
+    db.Event.delete(req.body,
+        {
+            where: {
+                id: req.params.id
+            }
+        }, function(result) {
+            if (result.changedRows == 0) {
+                return res.status(404).end();
+            } else {
+                res.status(200).end();
+            }
+        })
+})
+
