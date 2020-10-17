@@ -10,8 +10,9 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Import routes and give the server access to them.
-const routes = require("./controllers/events_controller.js");
-app.use(routes);
+require("./controllers/event_controller.js")(app);
+require("./controllers/guest_controller.js")(app);
+require("./controllers/request_controller.js")(app);
 
 // Set Handlebars.
 const exphbs = require("express-handlebars");
