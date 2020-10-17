@@ -9,8 +9,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-// Requiring our routes
-// require("./routes/html-routes.js")(app);
+// Import routes and give the server access to them.
+const routes = require("./controllers/events_controller.js");
+app.use(routes);
+
+// Set Handlebars.
+const exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function() {
