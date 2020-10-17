@@ -19,10 +19,10 @@ module.exports = function(router) {
             where: {
                 name: req.params.name
             }
-        }.then(function(data) {
+        }).then(function(data) {
             console.log(data);
             res.json(data);
-        }));
+        });
     });
     
     router.post("/api/event", function(req,res) {
@@ -37,14 +37,13 @@ module.exports = function(router) {
                 where: {
                     id: req.params.id
                 }
-            }.then(function(result) {
+            }).then(function(result) {
                 if (result.changedRows == 0) {
                     return res.status(404).end();
                 } else {
                     res.status(200).end();
                 }
-            })
-        );
+            });
     });
     
     router.delete("/api/event/:id", function(req,res) {
@@ -53,14 +52,13 @@ module.exports = function(router) {
                 where: {
                     id: req.params.id
                 }
-            }.then(function(result) {
+            }).then(function(result) {
                 if (result.changedRows == 0) {
                     return res.status(404).end();
                 } else {
                     res.status(200).end();
                 }
-            })
-        );
+            });
     });
 };
 
