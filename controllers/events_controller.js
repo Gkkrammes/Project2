@@ -13,6 +13,7 @@ router.get("/", function(req,res) {
     });
 });
 
+
 router.get("/:name", function(req,res) {
     db.Event.findOne({
         where: {
@@ -36,13 +37,13 @@ router.post("/api/events", function(req,res) {
 
 router.put("/api/events/:id", function(req, res) {
     db.Event.update({
+        name: req.body.name,
+        description: req.body.description,
+        },{
         where: {
             id: req.params.id
         }
-    },{
-        name: req.body.name,
-        description: req.body.description,
-    }, function(result) {
+     }, function(result) {
         if (result.changedRows == 0) {
             return res.status(404).end();
         } else {
@@ -51,4 +52,21 @@ router.put("/api/events/:id", function(req, res) {
     });
 });
 
+router.delete("/api/events/:id", function(req,res) {
+    db.Event.delete(req.body,
+        {
+            where: {
+                id: req.params.id
+            }
+        }, function(result) {
+            if (result.changedRows == 0) {
+                return res.status(404).end();
+            } else {
+                res.status(200).end();
+            }
+        })
+})
+
+
 module.exports = router;
+
