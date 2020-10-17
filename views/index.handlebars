@@ -22,7 +22,9 @@
                 <ul>
                     {{#each parties}}
                     {{#if finalized}}
-                    <p>{{name}}</p>
+                    <p>{{name}}<button type="submit" class="select btn btn-primary"
+                            data-id="{{id}}">Select</button></p>
+
                     {{/if}}
                     {{/each}}
                 </ul>
