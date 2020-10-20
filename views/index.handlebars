@@ -1,13 +1,18 @@
+<div class="head">
+
+<div class="jumbotron">
+  <h1 class="display-4">Party Time!</h1>
+  <p class="lead"></p>
+  <hr class="my-4">
+  <p>Select a party below and enter the password you were given by the host.</p>
+  <a class="btn btn-primary btn-lg" href="views/partials/create.handlebars" role="white-button">Create a Party</a>
+</div>
+
 <div class="row d-flex justify-content-center align-items-center">
-
-    <div class="col text-center" id="party">
-        <h1>Party Time!</h1>
-    </div>
-
     <div class="container partyList jumbotron">
         <div class="row d-flex justify-content-center align-items-start ">
             <div class="col-md-6">
-                <h4>"Pick Your Party!"</h4>
+                <h4>"Select Your Party!"</h4>
                 <ul>
                     {{#each parties}}
                     {{#unless finalized}}
@@ -31,4 +36,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>
