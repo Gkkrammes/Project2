@@ -10,6 +10,30 @@ router.get("/", function(req,res) {
     });
 });
 
+router.get("/create", function(req,res) {
+    db.Event.findAll({}).then(function(data) { 
+        res.render("partials/create", data);
+    });
+});
+
+router.get("/rsvp", function(req,res) {
+    db.Event.findAll({}).then(function(data) { 
+        res.render("partials/rsvp", data);
+    });
+});
+
+router.get("/finalize", function(req,res) {
+    db.Event.findAll({}).then(function(data) { 
+        res.render("partials/finalize", data);
+    });
+});
+
+router.get("/claim", function(req,res) {
+    db.Event.findAll({}).then(function(data) { 
+        res.render("partials/claim", data);
+    });
+});
+
 router.get("/:name", function(req,res) {
     db.Event.findOne({
         where: {
