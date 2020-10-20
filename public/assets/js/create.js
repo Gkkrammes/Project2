@@ -1,15 +1,15 @@
 $(document).ready(function() {
     let creatorEmail = $('#creatorEmail');
     let creatorPassword = $('#creatorPassword');
-    let partyName = $('#partyName');
-    let partyDescription = $('#partyDescription');
+    let name = $('#name');
+    let description = $('#description');
     let userPassword = $('#userPassword');
 
     $(document).on('button', function(event) {
         event.preventDefault();
         let partyData = {
-            name: partyName.val().trim(),
-            description: partyDescription.val().trim(),
+            name: name.val().trim(),
+            description: description.val().trim(),
             creatorEmail: creatorEmail.val().trim(),
             creatorPassword: creatorPassword.val().trim(),
             userPassword: userPassword.val().trim(),
