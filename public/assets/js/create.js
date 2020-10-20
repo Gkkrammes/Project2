@@ -1,4 +1,6 @@
 $(document).ready(function() {
+    console.log('running create javascript');
+
     let creatorEmail = $('#creatorEmail');
     let creatorPassword = $('#creatorPassword');
     let partyName = $('#partyName');
@@ -42,7 +44,4 @@ $(document).ready(function() {
             nameInput.val("");
           });
     };
-
-
-
 });
