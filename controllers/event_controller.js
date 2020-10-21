@@ -5,36 +5,36 @@ const db = require("../models");
 
 router.get("/", function(req,res) {
     db.Event.findAll({}).then(function(data) {
-        
-        res.render("index", data);
+        console.log(data);
+        res.render("index", { parties: data });
     });
 });
 
 router.get("/create", function(req,res) {
     db.Event.findAll({}).then(function(data) { 
-        data.layout = false;
-        res.render("partials/create", data);
+        
+        res.render("create", data);
     });
 });
 
 router.get("/rsvp", function(req,res) {
     db.Event.findAll({}).then(function(data) { 
-        data.layout = false;
-        res.render("partials/rsvp", data);
+        
+        res.render("rsvp", data);
     });
 });
 
 router.get("/finalize", function(req,res) {
     db.Event.findAll({}).then(function(data) { 
-        data.layout = false;
-        res.render("partials/finalize", data);
+        
+        res.render("finalize", data);
     });
 });
 
 router.get("/claim", function(req,res) {
     db.Event.findAll({}).then(function(data) { 
-        data.layout = false;
-        res.render("partials/claim", data);
+        
+        res.render("claim", data);
     });
 });
 
@@ -50,6 +50,8 @@ router.get("/:name", function(req,res) {
 });
 
 router.post("/api/event", function(req,res) {
+    console.log(req.body)
+
     db.Event.create(req.body).then(function(dbEvent) {
         res.json(dbEvent);
     });
