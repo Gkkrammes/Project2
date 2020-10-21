@@ -3,7 +3,15 @@
         <div class="card-body">
             <h5 class="card-title">Party Guests</h5>
             <p class="card-text">Finalize your attendance and items that you are bringing.</p>
-            <textarea class="Guest" id="partyguests" rows="3"></textarea>
-            <a href="#" class="btn btn-primary">Submit</a>
+            <textarea class="guestName" id="userName" rows="1"></textarea>
+            <ul>
+                {{#each requests}}
+                    {{#unless claimed}}
+                        <span><strong> {{this.id}} - {{this.request}} </strong></span>
+                        <button type="button" class="claim btn" id="claimButton" data-id="{{this.us}}"></button>
+                    {{/unless}}    
+                {{/each}}
+            </ul>
+            <a href="views/index.handlebars" class="btn btn-primary" id="submitClaimButton">Submit</a>
         </div>
     </div>
