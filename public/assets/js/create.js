@@ -5,8 +5,7 @@ $(document).ready(function() {
     let description = $('#description');
     let userPassword = $('#userPassword');
 
-    $(document).on('button', function(event) {
-        event.preventDefault();
+    $(document).on('click','#submitCreateButton', function(event) {
         let partyData = {
             name: name.val().trim(),
             description: description.val().trim(),
@@ -17,9 +16,13 @@ $(document).ready(function() {
         createParty(partyData);
     });
 
+/*  $.get('/create').then(response => {
+        $('body').append(response);
+    }); */
+
     function createParty(partyData) {
-        $.post('api/event', partyData)
-            .then(getParties);
+        $.post('/api/event', partyData)
+            //.then(getParties);
     };
 
 /*     function createPartyRow(name) {
