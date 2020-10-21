@@ -18,13 +18,13 @@ $(document).ready(function() {
     });
 
     function createParty(partyData) {
-        $.post('api/parties', partyData)
+        $.post('api/event', partyData)
             .then(getParties);
     };
 
-    function createPartyRow(partyName) {
+/*     function createPartyRow(name) {
         var newTr = $("<tr>");
-        newTr.data('party', partyName);
+        newTr.data('party', name);
         return newTr;
     };
 
@@ -33,7 +33,7 @@ $(document).ready(function() {
     };
 
     function getParties() {
-        $.get("/api/parties", function(data) {
+        $.get("/", function(data) {
             var rowsToAdd = [];
             for (var i = 0; i < data.length; i++) {
               rowsToAdd.push(createPartyRow(data[i].name));
@@ -41,7 +41,7 @@ $(document).ready(function() {
             renderPartyList(rowsToAdd);
             nameInput.val("");
           });
-    };
+    }; */
 
 
 
