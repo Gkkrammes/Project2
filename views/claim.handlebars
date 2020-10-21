@@ -1,17 +1,17 @@
-<div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Claim Items</h5>
-            <p class="card-text">Claim items, from the list below, which you would like to volunteer to bring to the party.</p>
-            <textarea class="Guest" id="partyguests" rows="3"></textarea>
+<div class="head">
+<div class="container">
+    <h1 class="title">Claim Items</h1>
+        <p class="text">Claim items, from the list below, which you would like to volunteer to bring to the party.</p>
+            <label>Guest Name:</label>
+            <textarea class="claim" id="claimRequests" rows="3"></textarea>
             <ul>
                 {{#each requests}}
                     {{#unless claimed}}
                         <span><strong> {{this.id}} - {{this.request}} </strong></span>
-                        <button type="button" class="claim btn" id="claimButton" data-id="{{this.us}}">Claim</button>
+                        <button type="button" class="claim btn" id="claimButton" data-id="{{requests}}">Claim</button>
                     {{/unless}}    
                 {{/each}}
             </ul>
-            <a href="#" class="btn btn-primary" id="submitRequestButton">Submit</a>
-        </div>
-    </div>
+    <a href="index.handlebars" class="btn btn-primary" id="submitRequestButton">Submit</a>
+</div>
+</div>

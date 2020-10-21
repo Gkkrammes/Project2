@@ -2,40 +2,24 @@
 
 <div class="jumbotron">
   <h1 class="display-4">Party Time!</h1>
-  <p class="lead"></p>
-  <hr class="my-4">
-  <p>Select a party below and enter the password you were given by the host.</p>
   <button type="button" class="btn btn-primary btn-lg" id="newPartyButton">Create a Party</button>
+  <hr>
+  <p class="lead">Select a party below and enter the password you were given by the host.</p>
+  
 </div>
 
-<div class="row d-flex justify-content-center align-items-center">
-    <div class="container partyList jumbotron">
-        <div class="row d-flex justify-content-center align-items-start ">
-            <div class="col-md-6">
-                <h4>"Select Your Party!"</h4>
+
+        <div class="row justify-content-center">
+            <div class="card">
                 <ul>
                     {{#each parties}}
-                    {{#unless finalized}}
+                    
                     <p>{{dataValues.name}} <button type="submit" class="select btn btn-primary" id="selectNewPartyButton"
                             data-id="{{dataValues.id}}">Select</button></p>
-                    {{/unless}}
+                   
                     {{/each}}
                 </ul>
             </div>
-            <div class="col-md-6">
-                <h4>"Finalized Parties"</h4>
-                <ul>
-                    {{#each parties}}
-                    {{#if finalized}}
-                    <p>{{name}}
-                        <button type="submit" class="select btn btn-primary" id="selectFinalizedPartyButton"
-                            data-id="{{id}}">Select</button></p>
-
-                    {{/if}}
-                    {{/each}}
-                </ul>
-            </div>
+           
         </div>
-    </div>
-</div>
-</div>
+    
