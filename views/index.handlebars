@@ -5,7 +5,7 @@
   <p class="lead"></p>
   <hr class="my-4">
   <p>Select a party below and enter the password you were given by the host.</p>
-  <a class="btn btn-primary btn-lg" href="create" role="white-button">Create a Party</a>
+  <a class="btn btn-primary btn-lg" id="newPartyButton" href="views/partials/create.handlebars" role="button">Create a Party</a>
 </div>
 
 <div class="row d-flex justify-content-center align-items-center">
@@ -16,7 +16,7 @@
                 <ul>
                     {{#each parties}}
                     {{#unless finalized}}
-                    <p>{{name}} <button type="submit" class="select btn btn-primary"
+                    <p>{{name}} <button type="submit" class="select btn btn-primary" id="selectNewPartyButton"
                             data-id="{{id}}">Select</button></p>
                     {{/unless}}
                     {{/each}}
@@ -27,8 +27,10 @@
                 <ul>
                     {{#each parties}}
                     {{#if finalized}}
-                    <p>{{name}}<button type="submit" class="select btn btn-primary"
+                    <p>{{name}}
+                        <button type="submit" class="select btn btn-primary" id="selectFinalizedPartyButton"
                             data-id="{{id}}">Select</button></p>
+
                     {{/if}}
                     {{/each}}
                 </ul>
