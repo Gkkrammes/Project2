@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "root",
-    "password": "Rn80440330!",
+    "username": "dfwebdev",
+    "password": "go8of4y",
     "database": "EVENTS_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
