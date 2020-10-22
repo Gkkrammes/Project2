@@ -1,13 +1,18 @@
 module.exports = function(sequelize, DataTypes) {
     var Requests = sequelize.define("Requests", {
-        name: {
-            type: DataTypes.TEXT,
+        guestName: {
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
-        confirmed: DataTypes.BOOLEAN
+        request: {
+            type: DataTypes.TEXT,
+            allowNull: true,
+            validate: {
+                len: [1]
+            }
     });
 
     Requests.associate = function(models) {
