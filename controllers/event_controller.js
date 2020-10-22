@@ -5,7 +5,6 @@ const db = require("../models");
 
 router.get("/", function(req,res) {
     db.Event.findAll({}).then(function(data) {
-        console.log(data);
         res.render("index", { parties: data });
     });
 });
@@ -17,9 +16,14 @@ router.get("/create", function(req,res) {
     });
 });
 
-router.get("/rsvp", function(req,res) {
-    db.Event.findAll({}).then(function(data) { 
-        
+//RSVP Page/////////////////////////////////////
+router.get("/rsvp/:id", function(req,res) {
+    db.Event.findOne({
+        where: {
+            id: req.params.id
+        }
+    }).then(function(data) {
+        console.log(data);
         res.render("rsvp", data);
     });
 });
@@ -51,7 +55,6 @@ router.get("/:name", function(req,res) {
 
 router.post("/api/event", function(req,res) {
     console.log(req.body)
-
     db.Event.create(req.body).then(function(dbEvent) {
         res.json(dbEvent);
     });
