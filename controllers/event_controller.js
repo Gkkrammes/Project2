@@ -17,9 +17,14 @@ router.get("/create", function(req,res) {
     });
 });
 
-router.get("/rsvp", function(req,res) {
-    db.Event.findAll({}).then(function(data) { 
-        
+//RSVP Page/////////////////////////////////////
+router.get("/rsvp/:id", function(req,res) {
+    db.Event.findOne({
+        where: {
+            name: req.params.id
+        }
+    }).then(function(data) {
+        console.log(data);
         res.render("rsvp", data);
     });
 });
