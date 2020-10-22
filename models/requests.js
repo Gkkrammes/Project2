@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var Requests = sequelize.define("Requests", {
-        guestName: {
+        guest: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes) {
                 len: [1]
             }
         }
-    })
+    });
 
     Requests.associate = function(models) {
         Requests.belongsTo(models.Event, {

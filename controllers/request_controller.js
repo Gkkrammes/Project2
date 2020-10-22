@@ -7,7 +7,7 @@ const db = require("../models");
 router.get("/api/request", function(req,res) {
     let query = {};
     if (req.query.event_id) {
-        query.AuthorID = req.query.author_id
+        query.EventID = req.query.event_id
     }
     db.Request.findAll({
         where: query,
