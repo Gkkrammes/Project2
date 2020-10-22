@@ -11,7 +11,6 @@ router.get("/", function(req,res) {
 
 router.get("/create", function(req,res) {
     db.Event.findAll({}).then(function(data) { 
-        
         res.render("create", data);
     });
 });

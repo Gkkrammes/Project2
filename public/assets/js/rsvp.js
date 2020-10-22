@@ -15,5 +15,4 @@ $(document).ready(function() {
     function createguest(guestData) {
         $.post('/api/guest', guestData) {
         };
-        
 });
