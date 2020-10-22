@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var Requests = sequelize.define("Requests", {
-        guestName: {
+        guest: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -13,6 +13,7 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
                 len: [1]
             }
+        }
     });
 
     Requests.associate = function(models) {
