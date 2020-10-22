@@ -13,7 +13,8 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
                 len: [1]
             }
-    });
+        }
+    })
 
     Requests.associate = function(models) {
         Requests.belongsTo(models.Event, {

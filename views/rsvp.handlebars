@@ -3,8 +3,10 @@
         <div class="card-body">
             <h5 class="card-title">Request Items for {{dataValues.name}} Party</h5>
             <p class="card-text">Please enter any game, activity, craft, snack, and/or beverage ideas or requests you may have for the party.</p>
-            <textarea class="Guest" id="guestName" rows="1"></textarea>
-            <textarea class="Guest" id="guestRequest" rows="3"></textarea>
-            <a href="/" class="btn btn-primary" id="submitRsvpButton">Submit</a>
+            <form action='/api/request/{{dataValues.id}}' method="POST">
+                <textarea class="Guest" id="guestName" rows="1" name="guestName"></textarea>
+                <textarea class="Guest" id="guestRequest" rows="3" name='request'></textarea>
+                <button type = 'submit' class="btn btn-primary">Submit</button>
+            </form>
         </div>
     </div>

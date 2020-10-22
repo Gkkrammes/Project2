@@ -28,8 +28,11 @@ router.get("/api/request/:id", function(req,res) {
     });
 });
 
-router.post("/api/request", function(req,res) {
-    db.Event.create(req.body).then(function(dbRequest) {
+router.post("/api/request/:id", function(req,res) {
+    const eventID = req.params.id;
+    const newRequest = req.body;
+    newRequest.EventId = eventID;
+    db.Requests.create(req.body).then(function(dbRequest) {
         res.json(dbRequest);
     });
 });
