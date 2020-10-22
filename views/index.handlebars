@@ -2,21 +2,15 @@
 
 <div class="jumbotron">
   <h1 class="display-4">Party Time!</h1>
-  <button type="button" class="btn btn-primary btn-lg" id="newPartyButton">Create a Party</button>
+  <a href='/create'><button class="btn btn-primary btn-lg" id="newPartyButton">Create A Party</button></a>
   <hr>
   <p class="lead">Select a party below and enter the password you were given by the host.</p>
-  
 </div>
-
-
         <div class="row justify-content-center">
             <div class="card">
                 <ul>
                     {{#each parties}}
-                    
-                    <p>{{dataValues.name}} <button type="submit" class="select btn btn-primary" id="selectNewPartyButton"
-                            data-id="{{dataValues.id}}">Select</button></p>
-                   
+                    <p><a href='rsvp/{{dataValues.id}}'><button class="select btn btn-primary" id="selectNewPartyButton">{{dataValues.name}}</button></a></p>
                     {{/each}}
                 </ul>
             </div>
