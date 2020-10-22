@@ -18,14 +18,14 @@ router.get("/create", function(req,res) {
 });
 
 //RSVP Page/////////////////////////////////////
-router.get("/rsvp/:id", function(req,res) {
+router.get("/rsvp/:name", function(req,res) {
     db.Event.findOne({
         where: {
-            name: req.params.id
+            name: req.params.name
         }
     }).then(function(data) {
         console.log(data);
-        res.render("rsvp", data);
+        res.render("rsvp", { parties: data });
     });
 });
 
@@ -56,7 +56,6 @@ router.get("/:name", function(req,res) {
 
 router.post("/api/event", function(req,res) {
     console.log(req.body)
-
     db.Event.create(req.body).then(function(dbEvent) {
         res.json(dbEvent);
     });

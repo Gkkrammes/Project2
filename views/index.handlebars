@@ -16,12 +16,7 @@
                 <ul>
                     {{#each parties}}
                     {{#unless finalized}}
-                    <a href="/rsvp/{{dataValues.id}}">    
-                    {{dataValues.name}} 
-                    </a>
-
-                    {{!-- <p><button type="submit" class="select btn btn-primary" id="selectNewPartyButton"
-                            data-id="{{dataValues.id}}">Select</button></p> --}}
+                    <a href="/rsvp/{{dataValues.name}}">{{dataValues.name}}</a>
                     {{/unless}}
                     {{/each}}
                 </ul>
