@@ -5,7 +5,6 @@ const db = require("../models");
 
 router.get("/", function(req,res) {
     db.Event.findAll({}).then(function(data) {
-        console.log(data);
         res.render("index", { parties: data });
     });
 });
@@ -18,14 +17,14 @@ router.get("/create", function(req,res) {
 });
 
 //RSVP Page/////////////////////////////////////
-router.get("/rsvp/:name", function(req,res) {
+router.get("/rsvp/:id", function(req,res) {
     db.Event.findOne({
         where: {
-            name: req.params.name
+            id: req.params.id
         }
     }).then(function(data) {
         console.log(data);
-        res.render("rsvp", { parties: data });
+        res.render("rsvp", data);
     });
 });
 
