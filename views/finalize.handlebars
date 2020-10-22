@@ -1,8 +1,7 @@
-<div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Party Guests</h5>
-            <p class="card-text">Finalize your attendance and items that you are bringing.</p>
+<div class="head">
+    <div class="container">
+        <h1 class="title">Party Guests</h1>
+            <p class="ext">Finalize your attendance and items that you are bringing.</p>
             <textarea class="guestName" id="userName" rows="1"></textarea>
             <ul>
                 {{#each requests}}
@@ -12,6 +11,6 @@
                     {{/unless}}    
                 {{/each}}
             </ul>
-            <a href="views/index.handlebars" class="btn btn-primary" id="submitClaimButton">Submit</a>
-        </div>
+        <a href="views/index.handlebars" class="btn btn-primary" id="submitClaimButton">Submit</a>
     </div>
+</div>
