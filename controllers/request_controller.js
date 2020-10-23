@@ -29,7 +29,7 @@ router.get("/api/request/:id", function(req,res) {
 });
 
 router.post("/api/request", function(req,res) {
-    db.Event.create(req.body).then(function(dbRequest) {
+    db.Requests.create(req.body).then(function(dbRequest) {
         res.json(dbRequest);
     });
 });

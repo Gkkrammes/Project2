@@ -1,18 +1,22 @@
 $(document).ready(function() {
-    let guestName = $('#guestName');
-    let guestRequest = $('#guestRequest');
-    let eventID = datavalues.ID;   ///I think this is correct for the ID of the event
+    let guestName = $('#guest');
+    let guestRequest = $('#request');
+    let eventID = $('#id');
 
     $(document).on('click', '#submitRsvpButton', function(event){
+        console.log('button hit');
         let guestData = {
-            eventID = eventID;
-            guestName: guestName.val().trim(),
-            guestRequest = guestRequest.val().trim()
+            eventId: eventID.val(),
+            guest: guestName.val().trim(),
+            request: guestRequest.val().trim()
         };
         createguest(guestData);
     });
 
     function createguest(guestData) {
-        $.post('/api/guest', guestData) {
-        };
+        $.post('/api/request', guestData)
+        .then(function(data) {
+            location.reload();
+        });
+    }
 });
