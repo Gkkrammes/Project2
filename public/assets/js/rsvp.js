@@ -1,7 +1,19 @@
+
 $(document).ready(function() {
     let guestName = $('#guest');
     let guestRequest = $('#request');
     let eventID = $('#id');
+    let planner = $('#planner');
+    let password = $('#passwordInput')
+
+    $(document).on('click', '#planner', function() {
+        $('#guestInput').hide();
+        $('#creatorInput').show();
+    });
+
+    $(document).on('click', '#passwordSubmit', function(list) {
+        $.get(`/rsvp/${eventID.val()}/${password.val()}`);
+    });
 
     $(document).on('click', '#submitRsvpButton', function(event){
         console.log('button hit');
@@ -20,3 +32,4 @@ $(document).ready(function() {
         });
     }
 });
+

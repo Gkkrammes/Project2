@@ -16,12 +16,18 @@ router.get("/create", function(req,res) {
 });
 
 //RSVP Page/////////////////////////////////////
-router.get("/rsvp/:id", function(req,res) {
+router.get("/rsvp/:id/:password?", function(req,res) {
     db.Event.findOne({
         where: {
             id: req.params.id
-        }
+        },
+        include: [
+            db.Request
+        ]
     }).then(function(data) {
+        if (req.params.password != null && req.params.password == data.dataValues.creatorPassword) {
+            data.dataValues.isCreator = true
+        }
         console.log(data);
         res.render("rsvp", data);
     });

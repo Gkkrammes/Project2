@@ -39,7 +39,7 @@ module.exports = function(sequelize, DataTypes) {
     });
 
     Event.associate = function(models) {
-        Event.hasMany(models.Guests, models.Requests, {
+        Event.hasMany(models.Request, {
             onDelete: "cascade"
         });
     };

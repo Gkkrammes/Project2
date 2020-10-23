@@ -2,6 +2,7 @@
         <div class="container">
             <h1 class="title">Request Items for {{dataValues.name}} Party</h1>
                 <p class="text">Please enter any game, activity, craft, snack, and/or beverage ideas or requests you may have for the party.</p>
+                <div id='guestInput'>
                     <label>Guest Name:</label>
                     <textarea class="Guest" id="guest" rows="1" name="guest"></textarea>
                     </br>
@@ -12,5 +13,18 @@
                     <input type = 'hidden' value="{{dataValues.id}}" id = 'id'>
                     </br>
                     <button type='button' class='btn btn-primary' id="planner">Planner Enter Here</button>
+                </div>
+                <div style='display:none' id='creatorInput'>
+                    <input type='text' id='passwordInput'>
+                    <button type='button' class='btn btn-primary' id='passwordSubmit'>Validate</button>
+                </div>
+                {{#if dataValues.isCreator}}
+                    <ul>
+                        {{#each dataValues.request}}
+                        <p>{{dataValues.guest}}</p>
+                        <p>{{dataValues.request}}</p>
+                        {{/each}}
+                    </ul>
+                {{/if}}
         </div>
     </div>
