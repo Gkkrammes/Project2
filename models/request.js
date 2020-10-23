@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var Requests = sequelize.define("Requests", {
+    var Request = sequelize.define("Request", {
         guest: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -16,13 +16,13 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
 
-    Requests.associate = function(models) {
-        Requests.belongsTo(models.Event, {
+    Request.associate = function(models) {
+        Request.belongsTo(models.Event, {
             foreignKey: {
                 allowNull: false
             }
         });
     };
 
-    return Requests;
+    return Request;
 }

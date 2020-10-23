@@ -17,9 +17,26 @@ router.get("/create", function(req,res) {
     });
 });
 
+<<<<<<< Updated upstream
 router.get("/rsvp", function(req,res) {
     db.Event.findAll({}).then(function(data) { 
         
+=======
+//RSVP Page/////////////////////////////////////
+router.get("/rsvp/:id/:password?", function(req,res) {
+    db.Event.findOne({
+        where: {
+            id: req.params.id
+        },
+        include: [
+            db.Request
+        ]
+    }).then(function(data) {
+        if (req.params.password != null && req.params.password == data.dataValues.creatorPassword) {
+            data.dataValues.isCreator = true
+        }
+        console.log(data);
+>>>>>>> Stashed changes
         res.render("rsvp", data);
     });
 });
