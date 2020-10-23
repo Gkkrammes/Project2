@@ -5,23 +5,16 @@ const db = require("../models");
 
 router.get("/", function(req,res) {
     db.Event.findAll({}).then(function(data) {
-        console.log(data);
         res.render("index", { parties: data });
     });
 });
 
 router.get("/create", function(req,res) {
     db.Event.findAll({}).then(function(data) { 
-        
         res.render("create", data);
     });
 });
 
-<<<<<<< Updated upstream
-router.get("/rsvp", function(req,res) {
-    db.Event.findAll({}).then(function(data) { 
-        
-=======
 //RSVP Page/////////////////////////////////////
 router.get("/rsvp/:id/:password?", function(req,res) {
     db.Event.findOne({
@@ -36,7 +29,6 @@ router.get("/rsvp/:id/:password?", function(req,res) {
             data.dataValues.isCreator = true
         }
         console.log(data);
->>>>>>> Stashed changes
         res.render("rsvp", data);
     });
 });
@@ -68,7 +60,6 @@ router.get("/:name", function(req,res) {
 
 router.post("/api/event", function(req,res) {
     console.log(req.body)
-
     db.Event.create(req.body).then(function(dbEvent) {
         res.json(dbEvent);
     });

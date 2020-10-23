@@ -29,11 +29,7 @@ router.get("/api/request/:id/", function(req,res) {
 });
 
 router.post("/api/request", function(req,res) {
-<<<<<<< Updated upstream
-    db.Event.create(req.body).then(function(dbRequest) {
-=======
     db.Request.create(req.body).then(function(dbRequest) {
->>>>>>> Stashed changes
         res.json(dbRequest);
     });
 });

@@ -1,5 +1,4 @@
-<<<<<<< Updated upstream
-=======
+
 $(document).ready(function() {
     let guestName = $('#guest');
     let guestRequest = $('#request');
@@ -33,4 +32,4 @@ $(document).ready(function() {
         });
     }
 });
->>>>>>> Stashed changes
+
