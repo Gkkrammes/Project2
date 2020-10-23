@@ -1,9 +1,9 @@
-<div class="head">
-<div class="container">
-    <h1 class="title">Claim Items</h1>
-        <p class="text">Claim items, from the list below, which you would like to volunteer to bring to the party.</p>
-            <label>Guest Name:</label>
-            <textarea class="claim" id="claimRequests" rows="3"></textarea>
+<main class="header-img">Party Planner</main>
+    <div class="container">
+        <h1 class="title">Claim Items</h1>
+            <p class="text">Claim items, from the list below, which you would like to volunteer to bring to the party.</p>
+                <label>Guest Name:</label>
+                <textarea class="claim" id="claimRequests" rows="3"></textarea>
             <ul>
                 {{#each requests}}
                     {{#unless claimed}}
@@ -12,6 +12,6 @@
                     {{/unless}}
                 {{/each}}
             </ul>
-    <a href="index.handlebars" class="btn btn-primary" id="submitRequestButton">Submit</a>
+    <a href="/"><button type="button" class="btn" id="submitRequestButton">Submit</button></a>
 </div>
 </div>
