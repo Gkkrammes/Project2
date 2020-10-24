@@ -1,3 +1,5 @@
+var bcrypt = require("bcryptjs");
+
 module.exports = function(sequelize, DataTypes) {
     var Event = sequelize.define("Event", {
         name: {
@@ -43,6 +45,15 @@ module.exports = function(sequelize, DataTypes) {
             onDelete: "cascade"
         });
     };
+
+    Event.prototype.validPassword = function(creatorPassword) {
+        return bcrypt.compareSync(creatorPassword, this.creatorPassword);
+      };
+
+    Event.addHook("beforeCreate", function(event) {
+        event.creatorPassword = bcrypt.hashSync(event.creatorPassword, bcrypt.genSaltSync(10), null);
+    });
+
 
     return Event;
 };

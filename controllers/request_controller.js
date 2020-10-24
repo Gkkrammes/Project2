@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-
 const db = require("../models");
-
+var passport = require("../config/passport");
+var isAuthenticated = require('../config/middleware/isAuthenticated');
 
 router.get("/api/request", function(req,res) {
     let query = {};
@@ -62,6 +62,12 @@ router.delete("/api/events/:id", function(req,res) {
         }
     });
 });
+
+router.post("/api/login", passport.authenticate("local"), function(req, res) {
+    res.json(req.user);
+    });
+
+
 
 module.exports = router;
 
