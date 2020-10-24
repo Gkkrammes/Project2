@@ -2,9 +2,9 @@
 $(document).ready(function() {
     let guestName = $('#guest');
     let guestRequest = $('#request');
-    let eventID = $('#id');
+    let eventID =  $('#id');
     let planner = $('#planner');
-    let password = $('#passwordInput')
+    let password = $('#passwordInput');
 
     $(document).on('click', '#planner', function() {
         $('#guestInput').hide();
@@ -34,7 +34,7 @@ $(document).ready(function() {
     $(document).on('click', '#login', function(event) {
       event.preventDefault();
       var userData = {
-        eventId: 1,   /////////////////////Just making this one to get through this//////////
+        eventId: eventID.val(),   
         loginEmail: emailInput.val().trim(),
         loginPassword: passwordInput.val().trim()
       };
@@ -47,12 +47,11 @@ $(document).ready(function() {
     });
 
     function loginUser(userData) {
-      console.log(userData);
       $.post('/api/login', {
         email: userData.loginEmail,
         password: userData.loginPassword
       }).then(function() {
-          const url = "/finalize/" + 1;
+          const url = "/finalize/" + userData.eventId;
           console.log(url);
           window.location.replace(url);
         })
