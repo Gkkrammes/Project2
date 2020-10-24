@@ -19,7 +19,7 @@ const db = {};
 //This is the code trying to get heroku to work
 let sequelize;
 if (process.env.JAWSDB_URL) {
-  sequelize = mysql.createConnection(process.env.JAWSDB_URL);
+  sequelize = Sequelize.createConnection(process.env.JAWSDB_URL);
 } else {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
