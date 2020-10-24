@@ -13,7 +13,7 @@ $(document).ready(function() {
 
     $(document).on('click', '#submitRsvpButton', function(event){
         let guestData = {
-            eventId: eventID.val(),
+            EventId: eventID.val(),
             guest: guestName.val().trim(),
             request: guestRequest.val().trim()
         };

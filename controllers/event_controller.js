@@ -38,13 +38,13 @@ router.get("/rsvp/:id/:password?", function(req,res) {
 
 //////////////////////////////////////////////////////////////////////////////////////
 router.get("/finalize/:id", isAuthenticated, function(req,res) {
-    db.Event.findOne({
+    db.Request.findAll({
         where: {
-            id: req.params.id
+            EventId: req.params.id
         }
     }).then(function(data) {
-        console.log(data);
-        res.render('finalize', data);
+        console.log('datastart', data, 'dataend');
+        res.render('finalize', {request:data});
     });
 });
 
