@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
+
+var isAuthenticated = require('../config/middleware/isAuthenticated');
+
 const db = require("../models");
 
 router.get("/", function(req,res) {
@@ -28,17 +31,25 @@ router.get("/rsvp/:id/:password?", function(req,res) {
         if (req.params.password != null && req.params.password == data.dataValues.creatorPassword) {
             data.dataValues.isCreator = true
         }
-        console.log(data);
+        //console.log(data);
         res.render("rsvp", data);
     });
 });
 
-router.get("/finalize", function(req,res) {
-    db.Event.findAll({}).then(function(data) { 
-        
-        res.render("finalize", data);
+//////////////////////////////////////////////////////////////////////////////////////
+router.get("/finalize/:id", isAuthenticated, function(req,res) {
+    db.Event.findOne({
+        where: {
+            id: req.params.id
+        }
+    }).then(function(data) {
+        console.log(data);
+        res.render('finalize', data);
     });
 });
+
+
+//////////////////////////////////////////////////////////////////////////////////////
 
 router.get("/claim", function(req,res) {
     db.Event.findAll({}).then(function(data) { 
@@ -53,13 +64,13 @@ router.get("/:name", function(req,res) {
             name: req.params.name
         }
     }).then(function(data) {
-        console.log(data);
+        //console.log(data);
         res.json(data);
     });
 });
 
 router.post("/api/event", function(req,res) {
-    console.log(req.body)
+    //console.log(req.body)
     db.Event.create(req.body).then(function(dbEvent) {
         res.json(dbEvent);
     });

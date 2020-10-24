@@ -1,14 +1,11 @@
 <div class="head">
     <div class="container">
         <h1 class="title">Party Guests</h1>
-            <p class="ext">Finalize your attendance and items that you are bringing.</p>
-            <textarea class="guestName" id="userName" rows="1"></textarea>
+            <p class="ext">Here's a list of those that have RSVP'd and what they would like.</p>
             <ul>
                 {{#each requests}}
-                    {{#unless claimed}}
                         <span><strong> {{this.id}} - {{this.request}} </strong></span>
-                        <button type="button" class="claim btn" id="claimButton" data-id="{{this.us}}"></button>
-                    {{/unless}}    
+                        <button type="button" class="claim btn" id="claimButton" data-id="{{this.us}}"></button>   
                 {{/each}}
             </ul>
         <a href="views/index.handlebars" class="btn btn-primary" id="submitClaimButton">Submit</a>

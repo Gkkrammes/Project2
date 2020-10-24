@@ -14,17 +14,20 @@
                     </br>
                     <button type='button' class='btn btn-primary' id="planner">Planner Enter Here</button>
                 </div>
+
+                {{!-- Login --}}
                 <div style='display:none' id='creatorInput'>
-                    <input type='text' id='passwordInput'>
-                    <button type='button' class='btn btn-primary' id='passwordSubmit'>Validate</button>
+                    <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="email-input" placeholder="Email">
                 </div>
-                {{#if dataValues.isCreator}}
-                    <ul>
-                        {{#each dataValues.request}}
-                        <p>{{dataValues.guest}}</p>
-                        <p>{{dataValues.request}}</p>
-                        {{/each}}
-                    </ul>
-                {{/if}}
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="password-input" placeholder="Password">
+                </div>
+                <div>
+                    <button type="button" class="btn btn-default" id='login'>Login</button>
+                    <input type = 'hidden' value="{{dataValues.id}}" id = 'id'>
+                </div>
         </div>
     </div>
